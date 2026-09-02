@@ -1,0 +1,18 @@
+Week 4 (Workshop 4.1) 02/09/2026
+ - Update and improve UML
+    My UML was not complete as I was updating it as I went along to ensure I understood the relationships.
+
+ - Validation methods in summoning ritual (ectoplasm and runes)
+    used better validation methods in SummoningRitual by creating two methods one for validating the runes (these can be zero) 
+    and one for validating ectoplasm (must be greater than zero)
+ 
+ - Discussed the level_up() in undead
+    I was a bit unsure about the wording and whether health and power should also be updated within this method 
+    or if these should be seperate methods.
+
+ - In resource manager -> create a method to validate rather than repeating (repetitive and boring). 
+    Initially, I individually validated all the runs 
+    (if isinstance(necrotic_rune, int) and not isinstance(necrotic_rune, bool), and necrotic_rune >= self.MIN_RESOURCE)
+    However, this can be improved by instead creating a validation method since this will be the same for all the resources. 
+    Furthermore, this validation method can also be called in collect_resources(). 
+    This allows me to remove large chunks of redudant and repetitive code.

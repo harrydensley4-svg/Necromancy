@@ -1,0 +1,43 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>0</x><y>40</y><w>210</w><h>190</h></coordinates><panel_attributes>SummoningRitual
+--
+- ritual_type
+- ectoplasm_cost
+- necrotic_cost
+- spirit_cost
+- bone_cost
+- flesh_cost
+--
++ perform_summoning()
++ get_costs()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>310</x><y>50</y><w>210</w><h>190</h></coordinates><panel_attributes>Undead
+--
+- undead_ID
+- level
+- health
+- power
+--
++ level_up()
++ get_health()
++ get_power()
++ get_level()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>10</x><y>320</y><w>210</w><h>170</h></coordinates><panel_attributes>Necromancer
+--
+- necromancer_ID
+- name
+--
++ summon()
++ control_undead()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>310</x><y>300</y><w>210</w><h>190</h></coordinates><panel_attributes>ResourceManager
+--
+- ectoplasm
+- necrotic
+- spirit
+- bone
+- flesh
+--
++ collect_ectoplasm()
++ collect_rune()
++ get_resources()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>140</y><w>130</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+composition
+</panel_attributes><additional_attributes>110;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>100</x><y>220</y><w>100</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+aggregation
+</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>210</x><y>380</y><w>120</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+composition
+</panel_attributes><additional_attributes>100;20;10;20</additional_attributes></element></diagram>
