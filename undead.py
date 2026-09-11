@@ -1,4 +1,18 @@
 class Undead:
+    """
+    Represents the creation of an undead warrior
+
+    Attributes
+    -------
+    undead_ID : int
+    name : str
+    health : int
+    power : int
+
+    Methods
+    -------
+    level_up()
+    """
     MIN_HEALTH = 0
     MAX_HEALTH = 100
     MIN_POWER = 0
@@ -49,4 +63,5 @@ class Undead:
             self.__power = self.MAX_POWER
 
     def __str__(self):
+        """Returns a readable string description. """
         return f'ID: {self.__undead_ID}, Name: {self.__name}, Level: {self.__level}, Health: {self.__health}, Max Health: {self.MAX_HEALTH}, Power: {self.__power}, Max Power: {self.MAX_POWER}'

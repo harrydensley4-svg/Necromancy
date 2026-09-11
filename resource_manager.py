@@ -1,31 +1,51 @@
 class ResourceManager:
+    """
+        represents a way to manage resources, including colllecting, spending and checking resource requirements. 
+
+        Attributes
+        --------
+        necrotic_runes : int
+        spirit_runes : int
+        bone_runes : int
+        flesh_runes : int
+        ectoplasm : int
+
+        Methods
+        --------
+        collect_resources()
+        check_requirements()
+        spend_resources()
+    """
     MIN_RESOURCE = 0
 
     def __init__(self, necrotic_runes, spirit_runes, bone_runes, flesh_runes, ectoplasm):
-        if isinstance(necrotic_runes, int) and not isinstance(necrotic_runes, bool) and necrotic_runes >= self.MIN_RESOURCE:
+        if self.validate_runes(necrotic_runes):
             self.__necrotic_runes = necrotic_runes
         else:
             self.__necrotic_runes = 0
 
-        if isinstance(spirit_runes, int) and not isinstance(spirit_runes, bool) and spirit_runes >= self.MIN_RESOURCE:
+        if self.validate_runes(spirit_runes):
             self.__spirit_runes = spirit_runes
         else:
             self.__spirit_runes = 0
 
-        if isinstance(bone_runes, int) and not isinstance(bone_runes, bool) and bone_runes >= self.MIN_RESOURCE:
+        if self.validate_runes(bone_runes):
             self.__bone_runes = bone_runes
         else:
             self.__bone_runes = 0
 
-        if isinstance(flesh_runes, int) and not isinstance(flesh_runes, bool) and flesh_runes >= self.MIN_RESOURCE:
+        if self.validate_runes(flesh_runes):
             self.__flesh_runes = flesh_runes
         else:
             self.__flesh_runes = 0
 
-        if isinstance(ectoplasm, int) and not isinstance(ectoplasm, bool) and ectoplasm >= self.MIN_RESOURCE:
+        if self.validate_runes(ectoplasm):
             self.__ectoplasm = ectoplasm
         else:
             self.__ectoplasm = 0
+
+    def validate_runes(self, runes):
+        return (isinstance(runes, int) and not isinstance(runes, bool) and runes >= self.MIN_RESOURCE)
 
     def get_necrotic_runes(self):
         return self.__necrotic_runes
@@ -83,4 +103,5 @@ class ResourceManager:
             print('Not enough resources')
 
     def __str__(self):
+        """Returns a readable string description of the object. """
         return f'Necrotic: {self.__necrotic_runes}, Spirit: {self.__spirit_runes}, Bone: {self.__bone_runes}, Flesh: {self.__flesh_runes}, Ectoplasm: {self.__ectoplasm}'
