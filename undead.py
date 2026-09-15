@@ -49,6 +49,9 @@ class Undead:
     power = property(get_power)
     level = property(get_level)
 
+    def command(self):
+        return f'{self.__name} follows its masters command. '
+
     def level_up(self):
         if self.__level < self.MAX_LEVEL:
             self.__level += 1

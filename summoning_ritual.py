@@ -1,5 +1,8 @@
 from resource_manager import ResourceManager
-from undead import Undead
+from skeleton_warrior import SkeletonWarrior
+from venegful_ghost import VengefulGhost
+from putrid_zombie import PutridZombie
+from phantom_guardian import PhantomGuardian
 
 class SummoningRitual:
     """
@@ -17,9 +20,9 @@ class SummoningRitual:
     bone : int
     flesh : int
     """
-    def __init__(self, name, undead_name, health, power, ectoplasm, necrotic=0, spirit=0, bone=0, flesh=0):
-        self.__name = name
+    def __init__(self, undead_name, summon_class, health, power, ectoplasm, necrotic=0, spirit=0, bone=0, flesh=0):
         self.__undead_name = undead_name
+        self.__summon_class = summon_class
         self.__health = health
         self.__power = power
 
@@ -30,11 +33,11 @@ class SummoningRitual:
         self.__bone = bone
         self.__flesh = flesh
 
-    def get_name(self):
-        return self.__name
-
     def get_undead_name(self):
         return self.__undead_name
+
+    def get_summon_class(self):
+        return self.__summon_class
 
     def get_health(self):
         return self.__health
@@ -57,7 +60,6 @@ class SummoningRitual:
     def get_flesh(self):
         return self.__flesh
 
-    name = property(get_name)
     undead_name = property(get_undead_name)
     health = property(get_health)
     power = property(get_power)
@@ -66,6 +68,7 @@ class SummoningRitual:
     spirit = property(get_spirit)
     bone = property(get_bone)
     flesh = property(get_flesh)
+    summon_class = property(get_summon_class)
 
     def check_ritual(self, resources):
         if isinstance(resources, ResourceManager):
@@ -78,10 +81,19 @@ class SummoningRitual:
         )
 
     def consume_resources(self, resources):
-        pass
+        if self.check_ritual(resources):
+            resources.spend_resources(
+                self.__necrotic,
+                self.__spirit,
+                self.__bone,
+                self.__flesh,
+                self.__ectoplasm
+            )
+            return True
+        return False
 
     def create_undead(self, undead_ID):
-        return Undead(undead_ID, self.__undead_name, self.__health, self.__power)
+        return self.__summon_class(undead_ID, self.__undead_name, self.__health, self.__power)
 
     def __str__(self):
         """Returns a readable string description of the object. """

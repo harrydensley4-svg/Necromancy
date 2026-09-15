@@ -47,10 +47,10 @@ class Necromancer:
     def add_resources(self, necrotic, spirit, bone, flesh, ectoplasm):
         return self.__resource.collect_resources(necrotic, spirit, bone, flesh, ectoplasm)
 
-    def summon(self, ritual):
+    def summon_undead(self, ritual):
         if isinstance(ritual, SummoningRitual):
             if ritual.check_ritual(self.__resource):
-                self.__resource.spend_resources(ritual.necrotic, ritual.spirit, ritual.bone, ritual.flesh, ritual.ectoplasm)
+                ritual.consume_resources(self.__resource)
                 undead = ritual.create_undead(self.__id)
                 self.__undead_list.append(undead)
                 self.__id += 1
@@ -71,7 +71,6 @@ class Necromancer:
         for undead in self.__undead_list:
             if undead.undead_ID == undead_id:
                 return undead
-
         return None
 
     def level_up(self, undead_id):
@@ -83,5 +82,5 @@ class Necromancer:
         new = ''
         for undead in self.__undead_list:
             new += 'UNDEAD ' + str(undead) + '\n'
-        return f'Resources: {self.__resource}' + '\n' + 'NECROMANCER\'S ARMY:'+ '\n' + f'{new}'
+        return f'Resources: {self.__resource}' + '\n' + f'{self.__name.upper()}\'S ARMY:'+ '\n' + f'{new}'
     
