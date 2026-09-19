@@ -7,5 +7,8 @@ class CursedUndead(Undead):
     def command(self):
         return super().command() + 'It casts a curse. '
 
+    def combat_style(self):
+        return 'Supernatural combat. '
+
     def __str__(self):
         return 'Cursed Undead' + super().__str__()

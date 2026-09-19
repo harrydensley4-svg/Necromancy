@@ -1,8 +1,10 @@
+from undead import Undead
 from resource_manager import ResourceManager
 from skeleton_warrior import SkeletonWarrior
 from venegful_ghost import VengefulGhost
 from putrid_zombie import PutridZombie
 from phantom_guardian import PhantomGuardian
+from death_knight import DeathKnight
 
 class SummoningRitual:
     """
@@ -22,7 +24,10 @@ class SummoningRitual:
     """
     def __init__(self, undead_name, summon_class, health, power, ectoplasm, necrotic=0, spirit=0, bone=0, flesh=0):
         self.__undead_name = undead_name
-        self.__summon_class = summon_class
+        if issubclass(summon_class, Undead):
+            self.__summon_class = summon_class
+        else:
+            self.__summon_class = Undead
         self.__health = health
         self.__power = power
 

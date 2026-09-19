@@ -54,6 +54,7 @@ class Necromancer:
                 undead = ritual.create_undead(self.__id)
                 self.__undead_list.append(undead)
                 self.__id += 1
+                return undead
             else:
                 print('Not enough resources')
         else:
@@ -75,7 +76,7 @@ class Necromancer:
 
     def level_up(self, undead_id):
         undead = self.__find_undead(undead_id)
-        undead.level_up()
+        return undead.level_up()
 
     def __str__(self):
         """Returns a readable string description of the object. """

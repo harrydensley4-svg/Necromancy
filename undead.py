@@ -21,6 +21,9 @@ class Undead:
     HEALTH_GAIN = 5
     POWER_GAIN = 5
 
+    STARTING_HEALTH = 30
+    STARTING_POWER = 25
+
     def __init__(self, undead_ID, name, health, power):
         self.__undead_ID = undead_ID
         self.__name = name

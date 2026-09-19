@@ -15,4 +15,9 @@ Week 4 (Workshop 4.1) 02/09/2026
     (if isinstance(necrotic_rune, int) and not isinstance(necrotic_rune, bool), and necrotic_rune >= self.MIN_RESOURCE)
     However, this can be improved by instead creating a validation method since this will be the same for all the resources. 
     Furthermore, this validation method can also be called in collect_resources(). 
-    This allows me to remove large chunks of redudant and repetitive code.
+    This allows me to remove large chunks of redudant and repetitive code.\
+
+Week 6 (Workshop 6.2) 18/09/2026
+- Discussed validation for the subclasses
+- discussed UML relationships
+- discussed the multiple inheritance relationship such as what method would be called through super().combat_style()

@@ -7,5 +7,8 @@ class WarriorUndead(Undead):
     def command(self):
         return super().command() + 'It prepares for battle. '
 
+    def combat_style(self):
+        return 'Direct martial combat. '
+
     def __str__(self):
         return 'Undead Warrior' + super().__str__()
