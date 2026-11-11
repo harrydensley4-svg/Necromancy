@@ -1,67 +1,133 @@
-<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>100</x><y>300</y><w>210</w><h>190</h></coordinates><panel_attributes>SummoningRitual
+<diagram program="umletino" version="15.1"><zoom_level>7</zoom_level><element><id>UMLClass</id><coordinates><x>154</x><y>140</y><w>147</w><h>266</h></coordinates><panel_attributes>SummoningRitual
 --
-- ritual_type
-- ectoplasm_cost
-- necrotic_cost
-- spirit_cost
-- bone_cost
-- flesh_cost
+- undead_name : str
+- ritual_id : int
+- summon_class : str
+- health : int
+- power : int
+- ectoplasm : int
+- necrotic : int
+- spirit : int
+- bone : int
+- flesh : int
 --
-+ perform_summoning()
-+ get_costs()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>410</x><y>310</y><w>210</w><h>190</h></coordinates><panel_attributes>Undead
++ get_undead_name()
++ get_ritual_id()
++ get_summon_class()
++ get_health()
++get_power()
++ get_ectoplasm()
++ get_necrotic()
++ get_spirit()
++ get_bone()
++ get_flesh()
++ check_ritual(resources)
++ consume_resources()
++ create_undead()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>371</x><y>203</y><w>147</w><h>210</h></coordinates><panel_attributes>Undead
 --
-- undead_ID
-- level
-- health
-- power
+- MIN_HEALTH = 0
+- MAX_HEALTH = 100
+- MIN_POWER = 0
+- MAX_POWER = 100
+- MAX_LEVEL = 100
+- HEALTH_GAIN = 5
+- POWER_GAIN = 5
+- undead_ID : int
+- level : int
+- health : int
+- power : int
 --
-+ level_up()
++ get_undead_id()
++ get_level()
 + get_health()
 + get_power()
-+ get_level()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>110</x><y>580</y><w>210</w><h>170</h></coordinates><panel_attributes>Necromancer
++ command()
++ level_up()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>63</x><y>469</y><w>245</w><h>175</h></coordinates><panel_attributes>Necromancer
 --
-- necromancer_ID
-- name
+-MAX_UNDEAD = 10
+- name : str
 --
-+ summon()
-+ control_undead()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>410</x><y>560</y><w>210</w><h>190</h></coordinates><panel_attributes>ResourceManager
++ get_name()
++ get_rituals()
++ get_resources()
++ get_undead()
++ get_id()
++ add_ritual(ritual: SummoningRitual)
++ add_resources(necrotic, spirit, bone, flesh, ectoplasm : int)
++ summon_undead(ritual_id : int)
++ dismiss(undead_id : int)
++ level_up(undead_id : int)
+- __find_undead(undead_id: int)
+- __find_ritual()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>371</x><y>455</y><w>147</w><h>189</h></coordinates><panel_attributes>ResourceManager
 --
-- ectoplasm
-- necrotic
-- spirit
-- bone
-- flesh
+- MIN_RESOURCE = 0
+- ectoplasm : int
+- necrotic : int
+- spirit : int
+- bone : int
+- flesh : int
 --
-+ collect_ectoplasm()
-+ collect_rune()
-+ get_resources()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>300</x><y>400</y><w>130</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
-composition
-</panel_attributes><additional_attributes>110;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>480</y><w>100</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
-aggregation
-</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>310</x><y>640</y><w>120</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
-composition
-</panel_attributes><additional_attributes>100;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>720</x><y>170</y><w>210</w><h>190</h></coordinates><panel_attributes>WarriorUndead
++ validate_runes(runes : int) : bool
++ get_ectoplasm()
++ get_necrotic()
++ get_spirit()
++ get_bone()
++ get_flesh()
++ collect_resources()
++ check_requirements()
++ spend_resources()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>224</x><y>399</y><w>28</w><h>84</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+</panel_attributes><additional_attributes>20;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>301</x><y>518</y><w>84</w><h>35</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+
+</panel_attributes><additional_attributes>100;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>588</x><y>217</y><w>147</w><h>98</h></coordinates><panel_attributes>WarriorUndead
+--
+- MIN_HEALTH = 60
+- MAX_HEALTH = 130
+- MIN_POWER = 10
+- MAX_POWER = 150
+--
++ Command()
++ combat_style()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>588</x><y>350</y><w>147</w><h>70</h></coordinates><panel_attributes>CursedUndead
 --
 --
 + Command()
-+ combat_style()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>720</x><y>380</y><w>210</w><h>190</h></coordinates><panel_attributes>CursedUndead
++ combat_style()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>791</x><y>14</y><w>147</w><h>91</h></coordinates><panel_attributes>SkeletonWarrior
 --
+- MIN_HEALTH = 20
+- MAX_HEALTH = 120
+- MIN_POWER = 10
+- MAX_POWER = 100
 --
-+ Command()
-+ combat_style()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1010</x><y>0</y><w>210</w><h>190</h></coordinates><panel_attributes>SkeletonWarrior
++ Command()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>791</x><y>147</y><w>147</w><h>91</h></coordinates><panel_attributes>PhantomGuardian
 --
+- MIN_HEALTH = 30
+- MAX_HEALTH = 120
+- MIN_POWER = 20
+- MAX_POWER = 100
 --
-+ Command()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1010</x><y>210</y><w>210</w><h>190</h></coordinates><panel_attributes>PhantomGuardian
++ Command()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>798</x><y>448</y><w>147</w><h>84</h></coordinates><panel_attributes>VengefulGhost
 --
+- MIN_HEALTH = 10
+- MAX_HEALTH = 100
+- MIN_POWER = 30
+- MAX_POWER = 120
 --
-+ Command()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1010</x><y>420</y><w>210</w><h>190</h></coordinates><panel_attributes>VengefulGhost
++ Command()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>588</x><y>441</y><w>147</w><h>98</h></coordinates><panel_attributes>PutridZombie
 --
+- MIN_HEALTH = 30
+- MAX_HEALTH = 120
+- MIN_POWER = 10
+- MAX_POWER = 90
 --
-+ Command()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>720</x><y>590</y><w>210</w><h>190</h></coordinates><panel_attributes>PutridZombie
++ Command()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>511</x><y>350</y><w>91</w><h>42</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;70;10;70;40;110;40</additional_attributes></element><element><id>Relation</id><coordinates><x>511</x><y>231</y><w>91</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;180;70;180;70;10;110;10</additional_attributes></element><element><id>Relation</id><coordinates><x>511</x><y>350</y><w>91</w><h>182</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;70;10;70;240;110;240</additional_attributes></element><element><id>Relation</id><coordinates><x>728</x><y>378</y><w>84</w><h>147</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;60;10;60;190;100;190</additional_attributes></element><element><id>Relation</id><coordinates><x>728</x><y>189</y><w>77</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;80;50;80;50;10;90;10</additional_attributes></element><element><id>Relation</id><coordinates><x>728</x><y>28</y><w>77</w><h>231</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;310;50;310;50;10;90;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>798</x><y>280</y><w>147</w><h>126</h></coordinates><panel_attributes>DeathKnight
 --
---
-+ Command()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>610</x><y>410</y><w>130</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;110;10</additional_attributes></element><element><id>Relation</id><coordinates><x>610</x><y>240</y><w>130</w><h>200</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;180;70;180;70;10;110;10</additional_attributes></element><element><id>Relation</id><coordinates><x>610</x><y>410</y><w>130</w><h>310</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;70;10;70;290;110;290</additional_attributes></element><element><id>Relation</id><coordinates><x>920</x><y>500</y><w>110</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;90;10</additional_attributes></element><element><id>Relation</id><coordinates><x>920</x><y>250</y><w>110</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;90;10</additional_attributes></element><element><id>Relation</id><coordinates><x>920</x><y>80</y><w>110</w><h>200</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;180;50;180;50;10;90;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>470</x><y>20</y><w>210</w><h>190</h></coordinates><panel_attributes>DeathKnight
---
+-MIN_HEALTH = 0
+- MAX_HEALTH = 200
+- MIN_POWER = 40
+- MAX_POWER = 150
+- MAX_LEVEL = 150
+- HEALTH_GAIN = 7
+- POWER_GAIN = 8
 --
 + combat_style()
-+ compare_combat_style()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>570</x><y>200</y><w>170</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>150;30;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>570</x><y>200</y><w>170</w><h>280</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>150;260;10;10</additional_attributes></element></diagram>
++ compare_combat_style()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>728</x><y>238</y><w>84</w><h>91</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;50;10;50;110;100;110</additional_attributes></element><element><id>Relation</id><coordinates><x>728</x><y>329</y><w>84</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;80;60;80;60;10;100;10</additional_attributes></element><element><id>Text</id><coordinates><x>350</x><y>511</y><w>28</w><h>35</h></coordinates><panel_attributes>1</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>287</x><y>399</y><w>98</w><h>84</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+</panel_attributes><additional_attributes>120;10;10;100</additional_attributes></element><element><id>Text</id><coordinates><x>308</x><y>455</y><w>70</w><h>49</h></coordinates><panel_attributes>1</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>350</x><y>420</y><w>70</w><h>49</h></coordinates><panel_attributes>0..10</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>294</x><y>266</y><w>91</w><h>35</h></coordinates><panel_attributes>lt=&lt;..</panel_attributes><additional_attributes>110;30;10;10</additional_attributes></element><element><id>Text</id><coordinates><x>217</x><y>455</y><w>70</w><h>49</h></coordinates><panel_attributes>1</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>210</x><y>406</y><w>70</w><h>49</h></coordinates><panel_attributes>0..*</panel_attributes><additional_attributes></additional_attributes></element></diagram>

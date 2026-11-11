@@ -3,7 +3,7 @@ from undead import Undead
 from summoning_ritual import SummoningRitual
 from necromancer import Necromancer
 from skeleton_warrior import SkeletonWarrior
-from venegful_ghost import VengefulGhost
+from vengeful_ghost import VengefulGhost
 from putrid_zombie import PutridZombie
 from phantom_guardian import PhantomGuardian
 from death_knight import DeathKnight
