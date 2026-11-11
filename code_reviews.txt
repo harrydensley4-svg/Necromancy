@@ -21,3 +21,9 @@ Week 6 (Workshop 6.2) 18/09/2026
 - Discussed validation for the subclasses
 - discussed UML relationships
 - discussed the multiple inheritance relationship such as what method would be called through super().combat_style()
+
+Weel 7 (Workshop 7.1) 23/09/2026
+- Discussed the finalisation of project 2
+- Told to include docstrings and comments
+- better explain what my trials are
+- discussed the early development of my creative piece.

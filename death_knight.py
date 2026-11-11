@@ -24,12 +24,3 @@ class DeathKnight(WarriorUndead, CursedUndead):
             f'Warrior style: {warrior}\n'
             f'Cursed Style: {cursed}\n'
         )
-
-
-death_knight = DeathKnight(1, 'Death Knight', 60, 80)
-
-print(DeathKnight.mro())
-
-print(death_knight.combat_style())
-
-print(death_knight.compare_combat_style())
